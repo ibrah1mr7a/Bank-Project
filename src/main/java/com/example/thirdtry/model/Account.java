@@ -2,10 +2,13 @@ package com.example.thirdtry.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
+@Table
 public class Account {
     @Id
     private String accountId;

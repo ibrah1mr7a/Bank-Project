@@ -2,11 +2,13 @@ package com.example.thirdtry.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Data;
 
 @Data
 @Entity
-public class UserFields extends Account {
+@Table
+public class UserFields  {
 
     @Id
     private String userId;

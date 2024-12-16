@@ -1,8 +1,8 @@
 package com.example.thirdtry.repository;
-import com.example.thirdtry.model.CardAccount;
+import com.example.thirdtry.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CardAccountRepo extends JpaRepository<CardAccount,Integer> {
+public interface UserRepo extends JpaRepository<User,Integer> {
 }

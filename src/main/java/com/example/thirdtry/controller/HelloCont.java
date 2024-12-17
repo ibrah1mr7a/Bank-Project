@@ -12,8 +12,6 @@ private CardRepo cardRepo;
 
     @GetMapping("/Greet")
     public String Greeting() {
-        cardRepo.findAll();
-
         return "Hello World";
     }
 }

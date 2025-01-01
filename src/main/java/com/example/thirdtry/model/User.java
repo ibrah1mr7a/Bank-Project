@@ -16,12 +16,13 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     String id;
-     String email;
-     String accountpassword;
-     String name;
-     String surname;
-    @OneToMany(mappedBy = "userFields", cascade = CascadeType.ALL, orphanRemoval = true)
-    List<Card> cards = new ArrayList<>();
+    Long id;
+    String email;
+    String accountpassword;
+    String name;
+    String surname;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    List<Card> cards;
 
 }

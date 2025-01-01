@@ -5,6 +5,9 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Data
 @Entity
 @Table
@@ -15,13 +18,15 @@ public class Card {
      int id;
      String cardname;
      String cardnumber;
-     String cardcreatingdate;
-     String cardenddate;
+     LocalDate cardCreatingDate;
+     LocalDate cardEndDate=cardCreatingDate.plusYears(5);
      Double balance;
      int cvv;
      int cardpassword;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false) // Foreign key column in the Card table
+    @JoinColumn(name = "user_id", nullable = false)
     User user;
+
+
 }

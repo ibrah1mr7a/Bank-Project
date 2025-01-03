@@ -15,11 +15,11 @@ import java.time.LocalDateTime;
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-     int id;
-     String cardname;
-     String cardnumber;
+     Long cardId;
+     String cardnName;
+     String cardNumber;
      LocalDate cardCreatingDate;
-     LocalDate cardEndDate=cardCreatingDate.plusYears(5);
+     LocalDate cardEndDate;
      Double balance;
      int cvv;
      int cardpassword;
@@ -28,5 +28,12 @@ public class Card {
     @JoinColumn(name = "user_id", nullable = false)
     User user;
 
+    @PrePersist
+    public void prePersist() {
+        if (cardCreatingDate == null) {
+            cardCreatingDate = LocalDate.now();
+        }
+        cardEndDate = cardCreatingDate.plusYears(5);
+    }
 
 }

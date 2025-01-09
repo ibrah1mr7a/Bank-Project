@@ -7,17 +7,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class UserCont {
 
-    @Autowired
-    private UserSignupService userSignupService;
+    private final UserSignupService signupService;
 
-    @PostMapping("/signup") // Specific endpoint for signup requests
-    public ResponseEntity<String> signup(@RequestBody SignUpDTO signUpDTO) {
-        ResponseEntity<String> response = userSignupService.signUp(signUpDTO);
-        return response;
+    @Autowired
+    public UserCont(UserSignupService signupService) {
+        this.signupService = signupService;
     }
 
+    @PostMapping("/signup")
+    public ResponseEntity<String> signUp(@RequestBody SignUpDTO signUpDTO) {
+        try {
+            signupService.signUp(signUpDTO);
+            return ResponseEntity.ok("İstifadəçi uğurla qeydiyyatdan keçdi");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }

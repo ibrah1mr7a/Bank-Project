@@ -16,7 +16,8 @@ public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
      Long cardId;
-     String cardnName;
+     String cardType;
+     String cardName;
      String cardNumber;
      LocalDate cardCreatingDate;
      LocalDate cardEndDate;
@@ -36,4 +37,22 @@ public class Card {
         cardEndDate = cardCreatingDate.plusYears(5);
     }
 
+    public void setBalance(Double balance) {
+        this.balance = balance;
+    }
+    public void setCardPassword(int cardpassword) {
+        this.cardpassword = cardpassword;
+    }
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+    public void setCardType(String cardType) {
+        this.cardType = cardType;
+    }
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+    public void setCvv(int cvv) {
+        this.cvv = cvv;
+    }
 }

@@ -2,7 +2,6 @@ package com.example.thirdtry.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
-import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
@@ -37,8 +36,8 @@ public class User {
                 '}';
     }
 
-    public Long getUserId() {
-        return userId;
+    public Long getUserId(Long userId) {
+        return this.userId;
     }
 
     public void setUserId(Long userId) {
